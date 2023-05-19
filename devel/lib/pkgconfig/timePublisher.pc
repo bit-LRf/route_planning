@@ -1,0 +1,8 @@
+prefix=/home/lrf/ROS/route_planning/devel
+
+Name: timePublisher
+Description: Description of timePublisher
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

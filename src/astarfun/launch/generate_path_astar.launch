@@ -1,0 +1,10 @@
+<launch>
+
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find astar)/config/astar.rviz" />
+    <node pkg="astar" type="main_astar" name="main_astar"  output="screen"/>
+    <include file="$(find agv_simulation)/launch/map_load.launch" />
+    <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="static_transform_publisher" args="-150 -150 0 0 0 0 /map /rastermap"  /> -->
+
+
+
+</launch>

@@ -1,0 +1,83 @@
+<robot name="camera" xmlns:xacro="http://wiki.ros.org/xacro" >
+
+    <link name="support">
+
+        <visual>
+            <geometry>
+                <!-- <box size="${camera_x} ${camera_y} ${camera_z}" /> -->
+                <cylinder radius="${support_radius}" length="${support_length}" />
+                <!-- <sphere radius="${footprint_radius}" /> -->
+                <!-- <mesh filename="package://urdf01_rviz/meshes/autolabor_mini.stl"  /> -->
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <material name="support_color" >
+                <color rgba="0.33 0.33 0.33 0.85" />
+            </material>
+        </visual>
+
+        <collision>
+            <geometry>
+                <!-- <box size="${camera_x} ${camera_y} ${camera_z}" /> -->
+                <cylinder radius="${support_radius}" length="${support_length}" />
+                <!-- <sphere radius="${footprint_radius}" /> -->
+                <!-- <mesh filename="package://urdf01_rviz/meshes/autolabor_mini.stl"  /> -->
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+        </collision>
+
+        <xacro:cylinder_inertial_matrix m="${support_mass}" r="${support_radius}" h="${support_length}" />
+
+    </link>
+
+    <gazebo reference="support">
+         <material>Gazebo/Gray</material>
+    </gazebo>
+
+    <joint name="support2base" type="fixed" >
+        <parent link="base_link" />
+        <child link="support" />
+        <origin xyz="${support2base_x} ${support2base_y} ${support2base_z}" rpy="0 0 0" />
+        <!-- <axis xyz="0 0 1" /> -->
+    </joint>
+
+    <link name="laser">
+
+        <visual>
+            <geometry>
+                <!-- <box size="${camera_x} ${camera_y} ${camera_z}" /> -->
+                <cylinder radius="${laser_radius}" length="${laser_length}" />
+                <!-- <sphere radius="${footprint_radius}" /> -->
+                <!-- <mesh filename="package://urdf01_rviz/meshes/autolabor_mini.stl"  /> -->
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <material name="laser_color" >
+                <color rgba="0 0.33 0.33 1" />
+            </material>
+        </visual>
+
+        <collision>
+            <geometry>
+                <!-- <box size="${camera_x} ${camera_y} ${camera_z}" /> -->
+                <cylinder radius="${laser_radius}" length="${laser_length}" />
+                <!-- <sphere radius="${footprint_radius}" /> -->
+                <!-- <mesh filename="package://urdf01_rviz/meshes/autolabor_mini.stl"  /> -->
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+        </collision>
+
+        <xacro:cylinder_inertial_matrix m="${laser_mass}" r="${laser_radius}" h="${laser_length}" />
+
+    </link>
+
+    <gazebo reference="laser">
+         <material>Gazebo/Black</material>
+    </gazebo>
+
+    <joint name="laser2support" type="fixed" >
+        <parent link="support" />
+        <child link="laser" />
+        <origin xyz="${laser2support_x} ${laser2support_y} ${laser2support_z}" rpy="0 0 0" />
+        <!-- <axis xyz="0 0 1" /> -->
+    </joint>
+
+</robot>

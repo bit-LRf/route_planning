@@ -1,0 +1,9 @@
+<launch>
+
+  <node pkg="astarfun" type="main_astar" name="main_astar" respawn="true" output="screen" />
+
+  <node pkg="agv_simulation" type="initialposePublisher" name="initialposePublisher" respawn="true" />
+
+  <node pkg="path_tracking" type="astar_track" name="astar_track" respawn="true" />
+
+</launch>

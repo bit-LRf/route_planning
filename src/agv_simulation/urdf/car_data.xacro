@@ -1,0 +1,44 @@
+<robot name="car" xmlns:xacro="http://wiki.ros.org/xacro" >
+
+    <xacro:property name="footprint_radius" value="0.001" />
+
+    <xacro:property name="base_x" value="0.451" />
+    <xacro:property name="base_y" value="0.260" />
+    <xacro:property name="base_z" value="0.070" />
+    <xacro:property name="base_mass" value="2" />
+    <xacro:property name="base2footprint_z" value="0.181" />
+
+    <xacro:property name="wheel_radius" value="0.080" />
+    <xacro:property name="wheel_length" value="0.080" />
+    <xacro:property name="wheel_mass" value="0.40" />
+    <xacro:property name="wheel2base_z" value="-0.101" />
+    <xacro:property name="wheel2base_y" value="${0.490/2}" />
+    <xacro:property name="wheel2base_x" value="${0.451/2}" />
+
+    <xacro:property name="camera_x" value="0.02" />
+    <xacro:property name="camera_y" value="0.05" />
+    <xacro:property name="camera_z" value="0.05" />
+    <xacro:property name="camera_mass" value="0.05" />
+    
+    <xacro:property name="camera2base_x" value="${base_x/2-0.05}" />
+    <xacro:property name="camera2base_y" value="0" />
+    <xacro:property name="camera2base_z" value="${base_z/2 + camera_z/2}" />
+
+    <xacro:property name="support_radius" value="0.01" />
+    <xacro:property name="support_length" value="0.15" />
+    <xacro:property name="support_mass" value="0.1" />
+
+    <xacro:property name="laser_radius" value="0.03" />
+    <xacro:property name="laser_length" value="0.03" />
+    <xacro:property name="laser_mass" value="0.03" />
+
+    <xacro:property name="support2base_x" value="0" />
+    <xacro:property name="support2base_y" value="0" />
+    <xacro:property name="support2base_z" value="${base_z/2 + support_length/2}" />
+
+    <xacro:property name="laser2support_x" value="0" />
+    <xacro:property name="laser2support_y" value="0" />
+    <xacro:property name="laser2support_z" value="${support_length/2 + laser_length/2}" />
+
+
+</robot>

@@ -1,0 +1,1 @@
+bool path_ok

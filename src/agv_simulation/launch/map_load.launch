@@ -1,0 +1,12 @@
+<launch>
+    <!-- 设置地图的配置文件 -->
+    <arg name="map" default="map.yaml" />
+    <!-- 运行地图服务器，并且加载设置的地图-->
+    <node name="map_server" pkg="map_server" type="map_server" args="$(find agv_simulation)/map/$(arg map)"/>
+
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find agv_simulation)/config/urdf.rviz"  />
+
+    <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="static_transform_publisher1" args="0 0 0 0 0 0 /map /odom"  /> -->
+    
+    <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="static_transform_publisher2" args="0 0 0 0 0 0 /map /serchedmap"  /> -->
+</launch>

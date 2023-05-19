@@ -1,0 +1,30 @@
+<robot name="car" xmlns:xacro="http://wiki.ros.org/xacro" >
+
+    <xacro:include filename="car_data.xacro" />
+    <xacro:include filename="head.xacro" />
+    <xacro:include filename="demo05_car_base.urdf.xacro" />
+    <xacro:include filename="gazebo/move.xacro" />
+
+    <!-- <xacro:include filename="demo06_car_camera.urdf.xacro" /> -->
+    <!-- <xacro:include filename="gazebo/camera.xacro" />  -->
+    
+    <!-- <xacro:include filename="demo07_car_laser.urdf.xacro" /> -->
+    <!-- <xacro:include filename="gazebo/laser.xacro" /> -->
+
+    <!-- <xacro:include filename="demo08_car_kinect.xacro" /> -->
+    <!-- <xacro:include filename="gazebo/kinect.xacro" /> -->
+
+    <gazebo>
+      <plugin name="p3d_base_controller" filename="libgazebo_ros_p3d.so">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>200.0</updateRate>
+        <bodyName>base_footprint</bodyName>
+        <topicName>base_pose_ground_truth</topicName>
+        <gaussianNoise>0.0</gaussianNoise>
+        <frameName>world</frameName>
+        <xyzOffsets>0 0 0</xyzOffsets>
+        <rpyOffsets>0 0 0</rpyOffsets>
+      </plugin>
+    </gazebo>
+
+</robot>

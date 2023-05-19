@@ -1,0 +1,36 @@
+<launch>
+
+  <!-- <include file="$(find agv_simulation)/launch/gmapping.launch" /> -->
+
+  <!-- 现在开启gmapping会使得astar失效，原因不明 -->
+  <!-- <node pkg="astar" type="main_astar" name="astar1" /> -->
+
+  <!-- 这条是发布小车的坐标的 目前可能（看脸）无法在此launch文件里正常运行-->
+  <!-- <node pkg="agv_simulation" type="initialposePublisher" name="initialposePublisher"  /> -->
+
+  <!-- <include file="$(find agv_simulation)/launch/map_load.launch" /> -->
+  <!-- 如果只开了map_loda就发布下面这个 -->
+  <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="static_transform_publisher1" args="0 0 0 0 0 0 /map /odom"  /> -->
+  <node pkg="tf2_ros" type="static_transform_publisher" name="static_transform_publisher2" args="0 0 0 0 0 0 /map /serchedmap"  />
+
+  <!-- <include file="$(find agv_simulation)/launch/amcl.launch" /> -->
+
+  <!-- <include file="$(find agv_simulation)/launch/move_base.launch" /> -->
+
+  <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="static_transform_publisher3" args="0 0 0 -1.57 0 -1.57 /kinect /kinect_depth"  /> -->
+
+  <param name="robot_description" command="$(find xacro)/xacro   $(find agv_simulation)/urdf/car.xacro" />
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch" >
+    <arg name="world_name" value="$(find agv_simulation)/worlds/blankWorld.world"  />
+  </include>
+
+  <node pkg="gazebo_ros" type="spawn_model" name="sm" args="-urdf -model car -param robot_description" />
+
+  <!-- <node pkg="rviz" type="rviz" name="rviz" args="-d $(find agv_simulation)/config/urdf.rviz"  /> -->
+
+  <node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher" />
+
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" />
+
+</launch>

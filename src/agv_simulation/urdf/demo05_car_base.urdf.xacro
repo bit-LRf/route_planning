@@ -1,0 +1,106 @@
+<robot name="base" xmlns:xacro="http://wiki.ros.org/xacro" >
+
+    <link name="base_footprint">
+
+        <visual>
+            <geometry>
+                <!-- <box size="0.3 0.2 0.1" /> -->
+                <!-- <cylinder radius="0.1" length="2" /> -->
+                <sphere radius="${footprint_radius}" />
+                <!-- <mesh filename="package://urdf01_rviz/meshes/autolabor_mini.stl"  /> -->
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <material name="footprint_color" >
+                <color rgba="1 0 0 0.1" />
+            </material>
+        </visual>
+        
+    </link>
+
+     <link name="base_link">
+
+        <visual>
+            <geometry>
+                <box size="${base_x} ${base_y} ${base_z}" />
+                <!-- <cylinder radius="${link_radius}" length="${link_length}" /> -->
+                <!-- <sphere radius="0.001" /> -->
+                <!-- <mesh filename="package://urdf01_rviz/meshes/autolabor_mini.stl"  /> -->
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <material name="base_color" >
+                <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+            </material>
+        </visual>
+
+        <collision>
+           <geometry>
+                <box size="${base_x} ${base_y} ${base_z}" />
+                <!-- <cylinder radius="${link_radius}" length="${link_length}" /> -->
+                <!-- <sphere radius="0.001" /> -->
+                <!-- <mesh filename="package://urdf01_rviz/meshes/autolabor_mini.stl"  /> -->
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+        </collision>
+
+        <xacro:Box_inertial_matrix m="${base_mass}" l="${base_x}" w="${base_y}" h="${base_z}" />
+
+    </link>
+
+    <gazebo reference="base_link">
+        <material>Gazebo/Yellow</material>
+     </gazebo>
+
+    <joint name="link2footprint" type="fixed" >
+        <parent link="base_footprint" />
+        <child link="base_link" />
+        <origin xyz="0 0 ${base2footprint_z}" rpy="0 0 0" />
+        <!-- <axis xyz="0 0 1" /> -->
+    </joint>
+
+    <xacro:macro name="wheel_func" params="wheel_name flag1 flag2" >
+
+         <link name="${wheel_name}">
+
+            <visual>
+                <geometry>
+                    <!-- <box size="0.3 0.2 0.1" /> -->
+                    <cylinder radius="${wheel_radius}" length="${wheel_length}" />
+                    <!-- <sphere radius="0.001" /> -->
+                    <!-- <mesh filename="package://urdf01_rviz/meshes/autolabor_mini.stl"  /> -->
+                </geometry>
+                <origin xyz="0 0 0" rpy="${pi/2} 0 0" />
+                <material name="${wheel_name}_color" >
+                    <color rgba="0 0 0 1" />
+                 </material>
+            </visual>
+
+            <collision>
+                <geometry>
+                    <cylinder radius="${wheel_radius}" length="${wheel_length}" />
+                </geometry>
+                <origin xyz="0 0 0" rpy="${pi/2} 0 0" />
+            </collision>
+
+            <xacro:cylinder_inertial_matrix m="${wheel_mass}" r="${wheel_radius}" h="${wheel_length}" />
+
+        </link>  
+
+        <gazebo reference="${wheel_name}">
+            <material>Gazebo/Red</material>
+        </gazebo>
+
+        <joint name="${wheel_name}2base" type="continuous" >
+            <parent link="base_link" />
+            <child link="${wheel_name}" />
+            <origin xyz="${wheel2base_x*flag1} ${wheel2base_y*flag2} ${wheel2base_z}" rpy="0 0 0" />
+            <axis xyz="0 1 0" />
+        </joint>
+
+    </xacro:macro>
+
+    <xacro:wheel_func wheel_name="front_left_wheel" flag1="1" flag2="1"  />
+    <xacro:wheel_func wheel_name="rear_left_wheel" flag1="-1" flag2="1"  />
+    <xacro:wheel_func wheel_name="front_right_wheel" flag1="1"  flag2="-1" />
+    <xacro:wheel_func wheel_name="rear_right_wheel" flag1="-1" flag2="-1"  />
+
+</robot>

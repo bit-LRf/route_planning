@@ -1,0 +1,2 @@
+agv_simulation:astarfun:path_tracking:reeds_shepp:route_planning:scout/scout_control:scout/scout_description:scout/scout_gazebo_sim:timepublisher
+-DCATKIN_DEVEL_PREFIX=/home/lrf/ROS/route_planning/devel -DCMAKE_INSTALL_PREFIX=/home/lrf/ROS/route_planning/install -G Unix Makefiles

@@ -1,0 +1,28 @@
+{
+    "configurations": [
+        {
+            "browse": {
+                "databaseFilename": "${default}",
+                "limitSymbolsToIncludedHeaders": false
+            },
+            "includePath": [
+                "/opt/ros/melodic/include/**",
+                "/usr/include/**",
+                "${workspaceFolder}/devel/include/**",
+                "${workspaceFolder}/src/route_planning/include",
+                "${workspaceFolder}/src/astarfun/include",
+                "${workspaceFolder}/src/Hybrid_A_Star-main/include",
+                "${workspaceFolder}/src/reeds_shepp/include",
+                "${workspaceFolder}/src/scout/scout_gazebo_sim/include",
+                "/usr/include/eigen3",
+                "/opt/ros/melodic/include"
+            ],
+            "name": "ROS",
+            "intelliSenseMode": "gcc-x64",
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "c11",
+            "cppStandard": "c++17"
+        }
+    ],
+    "version": 4
+}

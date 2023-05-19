@@ -1,0 +1,9 @@
+<launch>
+
+    <include file="$(find agv_simulation)/launch/map_load.launch" />
+
+    <node pkg="route_planning" type="main_plan" name="main_plan" respawn="true" output="screen" />
+
+    <node pkg="tf2_ros" type="static_transform_publisher" name="static_transform_publisher2" args="0 0 0 0 0 0 /map /serchedmap"  />
+
+</launch>

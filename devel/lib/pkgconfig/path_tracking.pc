@@ -1,0 +1,8 @@
+prefix=/home/lrf/ROS/route_planning/devel
+
+Name: path_tracking
+Description: Description of path_tracking
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

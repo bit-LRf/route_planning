@@ -1,0 +1,45 @@
+<robot name="camera" xmlns:xacro="http://wiki.ros.org/xacro" >
+
+    <link name="camera">
+
+        <visual>
+            <geometry>
+                <box size="${camera_x} ${camera_y} ${camera_z}" />
+                <!-- <cylinder radius="0.1" length="2" /> -->
+                <!-- <sphere radius="${footprint_radius}" /> -->
+                <!-- <mesh filename="package://urdf01_rviz/meshes/autolabor_mini.stl"  /> -->
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <material name="camera_color" >
+                <color rgba="0 0.33 0.33 1" />
+            </material>
+        </visual>
+
+        <collision>
+            <geometry>
+                <box size="${camera_x} ${camera_y} ${camera_z}" />
+                <!-- <cylinder radius="0.1" length="2" /> -->
+                <!-- <sphere radius="${footprint_radius}" /> -->
+                <!-- <mesh filename="package://urdf01_rviz/meshes/autolabor_mini.stl"  /> -->
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+        </collision>
+
+        <xacro:Box_inertial_matrix m="${camera_mass}" l="${camera_x}" w="${camera_y}" h="${camera_z}" />
+
+    </link>
+
+     <gazebo reference="camera">
+         <material>Gazebo/Blue</material>
+    </gazebo>
+
+    <joint name="camera2base" type="fixed" >
+        <parent link="base_link" />
+        <child link="camera" />
+        <origin xyz="${camera2base_x} ${camera2base_y} ${camera2base_z}" rpy="0 0 0" />
+        <!-- <axis xyz="0 0 1" /> -->
+    </joint>
+
+
+
+</robot>

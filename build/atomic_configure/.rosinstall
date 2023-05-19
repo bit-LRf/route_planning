@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/lrf/ROS/route_planning/devel/setup.sh

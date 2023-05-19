@@ -1,0 +1,8 @@
+<launch>
+
+    <include file="$(find gazebo_ros)/launch/empty_world.launch" >
+        <!-- 下面这段是查看世界用的 -->
+        <!-- <arg name="world_name" value="$(find agv_simulation)/worlds/map1"  /> -->
+    </include>
+
+</launch>

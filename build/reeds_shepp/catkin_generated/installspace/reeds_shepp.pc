@@ -1,0 +1,8 @@
+prefix=/home/lrf/ROS/route_planning/install
+
+Name: reeds_shepp
+Description: Description of reeds_shepp
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: roscpp rospy std_msgs

@@ -1,0 +1,54 @@
+<robot name="kinect" xmlns:xacro="http://wiki.ros.org/xacro" >
+
+    <xacro:property name="kinect_x" value="0.008" />
+    <xacro:property name="kinect_y" value="0.016" />
+    <xacro:property name="kinect_z" value="0.016" />
+    <xacro:property name="kinect_mass" value="0.02" />
+    
+    <xacro:property name="kinect2link_x" value="0.075" />
+    <xacro:property name="kinect2link_y" value="0" />
+    <xacro:property name="kinect2link_z" value="${link_length/2 + kinect_z/2 + camera_z}" />
+
+    <link name="kinect">
+
+        <visual>
+            <geometry>
+                <box size="${kinect_x} ${kinect_y} ${kinect_z}" />
+                <!-- <cylinder radius="0.1" length="2" /> -->
+                <!-- <sphere radius="${footprint_radius}" /> -->
+                <!-- <mesh filename="package://urdf01_rviz/meshes/autolabor_mini.stl"  /> -->
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <material name="kinect_color" >
+                <color rgba="1 0.33 0.33 1" />
+            </material>
+        </visual>
+
+        <collision>
+            <geometry>
+                <box size="${kinect_x} ${kinect_y} ${kinect_z}" />
+                <!-- <cylinder radius="0.1" length="2" /> -->
+                <!-- <sphere radius="${footprint_radius}" /> -->
+                <!-- <mesh filename="package://urdf01_rviz/meshes/autolabor_mini.stl"  /> -->
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+        </collision>
+
+        <xacro:Box_inertial_matrix m="${kinect_mass}" l="${kinect_x}" w="${kinect_y}" h="${kinect_z}" />
+
+    </link>
+
+     <gazebo reference="kinect">
+         <material>Gazebo/Red</material>
+    </gazebo>
+
+    <joint name="kinect2link" type="fixed" >
+        <parent link="base_link" />
+        <child link="kinect" />
+        <origin xyz="${kinect2link_x} ${kinect2link_y} ${kinect2link_z}" rpy="0 0 0" />
+        <!-- <axis xyz="0 0 1" /> -->
+    </joint>
+
+
+
+</robot>
