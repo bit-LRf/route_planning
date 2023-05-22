@@ -6,6 +6,8 @@ Panels:
       Expanded:
         - /Global Options1
         - /Status1
+        - /Map2/Status1
+        - /Axes1
       Splitter Ratio: 0.5
     Tree Height: 514
   - Class: rviz/Selection
@@ -138,7 +140,7 @@ Visualization Manager:
       Radius: 0.029999999329447746
       Shaft Diameter: 0.10000000149011612
       Shaft Length: 0.10000000149011612
-      Topic: /searchedpath
+      Topic: /planning/path
       Unreliable: false
       Value: true
     - Alpha: 0.699999988079071
@@ -147,9 +149,16 @@ Visualization Manager:
       Draw Behind: false
       Enabled: true
       Name: Map
-      Topic: /serchedmap
+      Topic: /planning/map
       Unreliable: false
       Use Timestamp: false
+      Value: true
+    - Class: rviz/Axes
+      Enabled: true
+      Length: 5
+      Name: Axes
+      Radius: 0.009999999776482582
+      Reference Frame: map
       Value: true
   Enabled: true
   Global Options:
@@ -179,25 +188,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 4.449769496917725
+      Distance: 8.975831985473633
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: -1.1933655738830566
-        Y: 1.427072525024414
-        Z: -0.8413864970207214
+        X: 0.163682758808136
+        Y: 0.3157605528831482
+        Z: -1.3401025533676147
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 1.3697965145111084
+      Pitch: 1.0247968435287476
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 5.305394649505615
+      Yaw: 4.785394191741943
     Saved: ~
 Window Geometry:
   Displays:
@@ -215,5 +224,5 @@ Window Geometry:
   Views:
     collapsed: false
   Width: 1469
-  X: 525
-  Y: 204
+  X: 67
+  Y: 168

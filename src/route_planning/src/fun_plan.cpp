@@ -11,9 +11,9 @@ class_plan::class_plan(ros::NodeHandle& nh)
 
     subEndPose = nh.subscribe("/move_base_simple/goal",1,&class_plan::subEndPoseCallback,this);
     
-    pubPath = nh.advertise<nav_msgs::Path>("/searchedpath",2,true);
+    pubPath = nh.advertise<nav_msgs::Path>("/planning/path",2,true);
 
-    pubMap = nh.advertise<nav_msgs::OccupancyGrid>("/serchedmap",2,true);
+    pubMap = nh.advertise<nav_msgs::OccupancyGrid>("/planning/map",2,true);
 
     //设置epsilon的初始值
     epsilon = 2.5;
