@@ -463,7 +463,7 @@ void class_plan::subMapCallback(const nav_msgs::OccupancyGrid& msg)
                 }
             }
 
-            pubMap.publish(serchedmap);//发布搜索图
+            // pubMap.publish(serchedmap);//发布搜索图
 
             //更新处理
             updateHandler();
@@ -562,7 +562,7 @@ void class_plan::path_calculator()
     {
         // rate.sleep();
 
-        pubMap.publish(serchedmap);//发布搜索图
+        // pubMap.publish(serchedmap);//发布搜索图
 
         //复制栈顶的值
         int x_tmp = queue.top().x;

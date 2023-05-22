@@ -13,7 +13,7 @@ int main(int argc, char*  argv[])
 
     class_plan plan(nh);
 
-    ros::Rate rate(1);
+    ros::Rate rate(10);
 
     clock_t startTime,endTime;
 
