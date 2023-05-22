@@ -804,7 +804,7 @@ void class_plan::path_generator()
         // cout<<"寻找当前最优路径点:"<<node_tmp.x<<" , "<<node_tmp.y<<"    G:"<<mapList[node_tmp.x][node_tmp.y].G
         // <<"  key:"<<mapList[node_tmp.x][node_tmp.y].Key1<<endl;
 
-        rate.sleep();
+        // rate.sleep();
 
         pubPath.publish(path_msg);//发布路径消息
 

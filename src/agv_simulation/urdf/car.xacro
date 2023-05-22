@@ -8,8 +8,8 @@
     <!-- <xacro:include filename="demo06_car_camera.urdf.xacro" /> -->
     <!-- <xacro:include filename="gazebo/camera.xacro" />  -->
     
-    <!-- <xacro:include filename="demo07_car_laser.urdf.xacro" /> -->
-    <!-- <xacro:include filename="gazebo/laser.xacro" /> -->
+    <xacro:include filename="demo07_car_laser.urdf.xacro" />
+    <xacro:include filename="gazebo/laser.xacro" />
 
     <!-- <xacro:include filename="demo08_car_kinect.xacro" /> -->
     <!-- <xacro:include filename="gazebo/kinect.xacro" /> -->

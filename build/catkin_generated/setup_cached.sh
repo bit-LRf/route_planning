@@ -7,10 +7,4 @@
 # new environment variables
 
 # modified environment variables
-export CMAKE_PREFIX_PATH="/home/lrf/ROS/route_planning/devel:$CMAKE_PREFIX_PATH"
-export LD_LIBRARY_PATH="/home/lrf/ROS/route_planning/devel/lib:$LD_LIBRARY_PATH"
-export PKG_CONFIG_PATH="/home/lrf/ROS/route_planning/devel/lib/pkgconfig:$PKG_CONFIG_PATH"
 export PWD='/home/lrf/ROS/route_planning/build'
-export PYTHONPATH="/home/lrf/ROS/route_planning/devel/lib/python2.7/dist-packages:$PYTHONPATH"
-export ROSLISP_PACKAGE_DIRECTORIES="/home/lrf/ROS/route_planning/devel/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
-export ROS_PACKAGE_PATH="/home/lrf/ROS/route_planning/src:$ROS_PACKAGE_PATH"
