@@ -40,13 +40,13 @@ int main(int argc, char  *argv[])
         {
             initial_pose.header.stamp = ros::Time::now();
 
-            tfs = buffer.lookupTransform("odom","base_footprint",ros::Time(0));//接收订阅的坐标变换
+            tfs = buffer.lookupTransform("map","base_footprint",ros::Time(0));//接收订阅的坐标变换
             
             //给发布的消息载体赋值
             initial_pose.pose.pose.position.x = tfs.transform.translation.x;
             initial_pose.pose.pose.position.y = tfs.transform.translation.y;
             initial_pose.pose.pose.orientation = tfs.transform.rotation;
-            initial_pose.header.frame_id = "/odom";
+            initial_pose.header.frame_id = "/map";
             initial_pose.header.stamp.sec = ros::Time::now().toSec();
             initial_pose.header.stamp.nsec = ros::Time::now().toNSec();
 

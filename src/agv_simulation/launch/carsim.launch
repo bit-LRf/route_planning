@@ -11,6 +11,7 @@
   <!-- <include file="$(find agv_simulation)/launch/map_load.launch" /> -->
   <!-- 如果只开了map_loda就发布下面这个 -->
   <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="static_transform_publisher1" args="0 0 0 0 0 0 /map /odom"  /> -->
+
   <node pkg="tf2_ros" type="static_transform_publisher" name="static_transform_publisher2" args="0 0 0 0 0 0 /map /planning/map"  />
 
   <!-- <include file="$(find agv_simulation)/launch/amcl.launch" /> -->

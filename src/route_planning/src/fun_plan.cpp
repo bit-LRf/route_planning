@@ -243,7 +243,7 @@ void class_plan::subMapCallback(const nav_msgs::OccupancyGrid& msg)
 
         //------------------------用于生成发布的地图------------------------
 
-        serchedmap.header.frame_id="serchedmap";
+        serchedmap.header.frame_id="/planning/map";
         serchedmap.header.stamp = ros::Time::now(); 
         serchedmap.info.origin.position.x = origin_x;
         serchedmap.info.origin.position.y = origin_y;
